@@ -13,10 +13,21 @@
 # and
 #   about_triangle_project_2.rb
 #
+require('set')
 def triangle(a, b, c)
-  # WRITE THIS CODE
+    a,b,c = [a,b,c].sort
+    fail TriangleError unless a>0 and c-a<b and a+b>c
+    if a==c
+        return :equilateral
+    elsif a==b or b==c
+        return :isosceles
+    else
+        return :scalene
+    end
 end
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+    
 end
